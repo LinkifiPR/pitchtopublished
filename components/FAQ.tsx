@@ -15,6 +15,14 @@ const FAQS = [
     a: "No. We start from zero. Module 1 assumes you've never sent a single pitch. By Module 5 you'll have built a 500-name media list and your first 10 pitches will be in inboxes.",
   },
   {
+    q: "How much time does this take each week?",
+    a: "About 20 minutes a day, or two focused hours a week. Lessons are cut into 8–15 minute segments, each ending with one concrete action. The 90-day plan in Module 8 maps it out day by day, so you never have to wonder what to do next.",
+  },
+  {
+    q: "I'm pre-launch / very early stage. Is it too soon?",
+    a: "Early is actually an advantage — 'unknown founder building X in public' is one of the most pitchable angles in journalism. You'll build your press assets, story bank, and journalist relationships before launch, so that when you do launch, the coverage is already lined up.",
+  },
+  {
     q: "How long do I have access?",
     a: "Lifetime — including every future update. The PR landscape evolves; the course evolves with it. New modules and case studies are added quarterly at no extra cost.",
   },
@@ -33,6 +41,10 @@ const FAQS = [
   {
     q: "Is there a payment plan?",
     a: "Yes. You can split it into 3 monthly payments of $179 at checkout. Total is the same — no fees, no interest.",
+  },
+  {
+    q: "What exactly happens when Cohort 01 closes?",
+    a: "Three things, immediately: the price returns to $999 permanently, the $687 bonus stack (PR Request Blacklist, Journo Bio Builder GPT, SEO Estonia vault) retires from the offer, and enrollment locks until we decide on a second cohort. If you're reading this while the timer is running, you're seeing the best version of this offer that will ever exist.",
   },
 ];
 

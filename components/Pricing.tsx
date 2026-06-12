@@ -1,18 +1,22 @@
 "use client";
-import { Check, ArrowRight, Lock } from "lucide-react";
+import { Check, ArrowRight, Lock, Flame } from "lucide-react";
 import Reveal from "./Reveal";
 
 const INCLUDES = [
   "8 modules · 12+ hours of HD video lessons",
   "Lifetime access — including all future updates",
   "All swipe files, templates, and frameworks",
-  "$1,054 in bonuses (cheat sheets, GPTs, kits)",
+  "$687 in bonuses (Blacklist, Bio GPT, SEO Estonia vault)",
   "Private founder Slack + monthly office hours",
   "Real journalist contact list (1,200+ names)",
   "30-day, 10× win-rate money-back guarantee",
 ];
 
+const SEATS_TAKEN = 47;
+const SEATS_TOTAL = 100;
+
 export default function Pricing() {
+  const seatsLeft = SEATS_TOTAL - SEATS_TAKEN;
   return (
     <section id="pricing" className="relative py-32">
       <div
@@ -24,9 +28,9 @@ export default function Pricing() {
       <div className="mx-auto max-w-4xl px-6">
         <Reveal>
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-indigo/40 bg-indigo/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-indigo">
-              <span className="h-2 w-2 rounded-full bg-indigo live-dot" />
-              Limited launch pricing
+            <div className="inline-flex items-center gap-2 rounded-full border border-blush-pop/40 bg-blush-pop/10 px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.2em] text-blush-pop">
+              <span className="h-2 w-2 rounded-full bg-blush-pop live-dot" />
+              Launch pricing — ends when the timer or the seats run out
             </div>
             <h2 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl text-balance">
               One enrollment. <span className="italic text-indigo">Everything you need.</span>
@@ -62,6 +66,29 @@ export default function Pricing() {
                   One-time payment. Or 3× $179 at checkout.
                 </div>
 
+                {/* Seats scarcity bar */}
+                <div className="mt-7 rounded-2xl border border-blush-pop/30 bg-blush-pop/10 p-5">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="flex items-center gap-2 font-bold text-blush">
+                      <Flame className="h-4 w-4" />
+                      {seatsLeft} of {SEATS_TOTAL} seats remaining
+                    </span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-canvas/60">
+                      Cohort 01 caps at {SEATS_TOTAL}
+                    </span>
+                  </div>
+                  <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-canvas/15">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-blush-pop to-sky"
+                      style={{ width: `${(SEATS_TAKEN / SEATS_TOTAL) * 100}%` }}
+                    />
+                  </div>
+                  <div className="mt-3 text-xs text-canvas/70">
+                    When seat 100 fills — or the timer hits zero — the price returns to $999
+                    and the bonus stack retires. No exceptions, no extensions.
+                  </div>
+                </div>
+
                 <a
                   href="#enroll"
                   className="group mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-sky px-8 py-4 text-base font-semibold text-ink transition hover:bg-canvas"
@@ -88,6 +115,13 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-6 border-t border-canvas/10 pt-5 text-center">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-canvas/50">
+                    Total stack value
+                  </div>
+                  <div className="font-serif text-3xl text-sky">$2,633</div>
+                  <div className="text-xs text-canvas/60">Yours for $499 today</div>
+                </div>
               </div>
             </div>
           </div>
@@ -95,7 +129,9 @@ export default function Pricing() {
 
         <Reveal delay={0.2}>
           <p className="mt-10 text-center text-sm text-ink/60">
-            <span className="text-ink/80">Heads up:</span> price returns to $999 the moment Cohort 01 closes. We won't run this discount again.
+            <span className="font-semibold text-ink/85">Heads up:</span> price returns to $999 the
+            moment Cohort 01 closes. We won't run this discount again — and we don't do
+            "extended one more week" games.
           </p>
         </Reveal>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, PlayCircle, Star, CheckCircle2, Sparkles } from "lucide-react";
 
 const fadeUp = {
@@ -17,6 +18,79 @@ const PROOF_PILLS = [
   "1,200+ live journalist contacts included",
 ];
 
+function PortraitFrame({
+  src,
+  name,
+  role,
+  side,
+  delay = 0,
+}: {
+  src: string;
+  name: string;
+  role: string;
+  side: "left" | "right";
+  delay?: number;
+}) {
+  const tilt = side === "left" ? "-rotate-3" : "rotate-3";
+  const align = side === "left" ? "items-start text-left" : "items-end text-right";
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40, rotate: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={`relative flex flex-col gap-3 ${align}`}
+    >
+      <div className={`group relative ${tilt} transition-transform duration-500 hover:rotate-0`}>
+        {/* glow halo */}
+        <div
+          aria-hidden
+          className="absolute -inset-6 -z-10 rounded-[2rem] opacity-70 blur-2xl"
+          style={{
+            background:
+              side === "left"
+                ? "radial-gradient(ellipse, #E91E80 0%, transparent 70%)"
+                : "radial-gradient(ellipse, #75C4E5 0%, transparent 70%)",
+          }}
+        />
+        <div className="relative h-72 w-56 overflow-hidden rounded-[1.75rem] border-[3px] border-canvas shadow-[0_30px_60px_-15px_rgba(0,0,0,0.35)] md:h-96 md:w-72">
+          <Image
+            src={src}
+            alt={name}
+            fill
+            sizes="(min-width: 768px) 18rem, 14rem"
+            className="object-cover"
+            priority
+          />
+          {/* subtle gradient overlay for legibility */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-1/2"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%)",
+            }}
+          />
+          {/* nameplate */}
+          <div className="absolute inset-x-0 bottom-0 p-4 text-canvas">
+            <div className="font-serif text-xl leading-tight md:text-2xl">{name}</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-canvas/85">
+              {role}
+            </div>
+          </div>
+        </div>
+        {/* corner sticker badge */}
+        <div
+          className={`absolute -top-3 ${
+            side === "left" ? "-right-3 rotate-6" : "-left-3 -rotate-6"
+          } rounded-full ${side === "left" ? "bg-blush-pop" : "bg-sky"} px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-canvas shadow-lg`}
+        >
+          {side === "left" ? "The Operator" : "The Insider"}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Hero() {
   return (
     <section id="top" className="noise-bg relative isolate overflow-hidden pb-16 pt-10 md:pb-20 md:pt-14">
@@ -24,8 +98,7 @@ export default function Hero() {
       <div aria-hidden className="absolute left-1/2 top-1/3 -z-10 h-[640px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[120px]" style={{ background: "radial-gradient(ellipse, #F0D5EB 0%, transparent 70%)" }} />
       <div aria-hidden className="absolute right-0 top-1/4 -z-10 h-[420px] w-[420px] rounded-full opacity-50 blur-[100px]" style={{ background: "radial-gradient(ellipse, #75C4E5 0%, transparent 70%)" }} />
 
-      <div className="mx-auto max-w-6xl px-6">
-        {/* Top eyebrow */}
+      <div className="mx-auto max-w-7xl px-6">
         <motion.div variants={fadeUp} custom={0} initial="hidden" animate="show" className="mb-5 flex flex-wrap items-center justify-center gap-3">
           <span className="inline-flex items-center gap-2 rounded-full border border-blush-dark/40 bg-blush/70 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-indigo">
             <span className="flex h-1.5 w-1.5 rounded-full bg-blush-pop live-dot" />
@@ -33,63 +106,108 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        <motion.h1
-          variants={fadeUp}
-          custom={1}
-          initial="hidden"
-          animate="show"
-          className="mx-auto max-w-5xl text-center font-serif text-5xl leading-[0.95] tracking-tight text-ink text-balance md:text-7xl lg:text-[92px]"
-        >
-          From <span className="italic text-indigo">Pitch</span> to{" "}
-          <span className="relative">
-            <span className="scribble">Published.</span>
-          </span>
-          <br />
-          <span className="gradient-text">10× your media wins</span> in 90 days.
-        </motion.h1>
-
-        <motion.p
-          variants={fadeUp}
-          custom={2}
-          initial="hidden"
-          animate="show"
-          className="mx-auto mt-7 max-w-3xl text-center text-lg leading-relaxed text-ink/75 md:text-xl text-pretty"
-        >
-          The only PR program co-taught by the founder of a <strong className="text-ink">top-50 digital PR agency</strong> and a <strong className="text-ink">tier-one journalist</strong> with bylines in Business Insider, NBC, Investopedia & PayPal. Engage the media. Win the coverage. Build the authority that compounds.
-        </motion.p>
-
-        {/* CTA cluster */}
-        <motion.div variants={fadeUp} custom={3} initial="hidden" animate="show" className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="#pricing" className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-indigo px-8 py-4 text-base font-semibold text-canvas shadow-[0_20px_60px_-15px_rgba(55,59,153,0.55)] transition hover:bg-indigo-deep">
-            <span className="relative z-10">Enroll for $499</span>
-            <span className="relative z-10 rounded-full bg-canvas/15 px-2 py-0.5 text-xs">Save $500</span>
-            <ArrowRight className="relative z-10 h-4 w-4 transition group-hover:translate-x-1" />
-          </a>
-          <a href="#curriculum" className="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-canvas/60 px-6 py-4 text-base text-ink/80 backdrop-blur transition hover:border-ink/40 hover:text-ink">
-            <PlayCircle className="h-5 w-5" />
-            See the curriculum
-          </a>
-        </motion.div>
-
-        {/* Micro-trust row */}
-        <motion.div variants={fadeUp} custom={4} initial="hidden" animate="show" className="mt-6 flex flex-col items-center justify-center gap-3 text-sm text-ink/65 md:flex-row md:gap-6">
-          <div className="flex items-center gap-2">
-            <div className="flex">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-indigo text-indigo" />
-              ))}
-            </div>
-            <span><strong className="text-ink">4.9/5</strong> from 312 founders</span>
+        {/* Portraits + headline */}
+        <div className="grid items-center gap-6 md:grid-cols-[auto_1fr_auto] md:gap-10">
+          <div className="hidden md:flex md:justify-start">
+            <PortraitFrame
+              src="/chris.jpg"
+              name="Chris Panteli"
+              role="Co-founder · Linkifi"
+              side="left"
+              delay={0.15}
+            />
           </div>
-          <span className="hidden h-1 w-1 rounded-full bg-ink/30 md:inline-block" />
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="h-4 w-4 text-indigo" /> 30-day 10× guarantee
+
+          <div className="text-center">
+            <motion.h1
+              variants={fadeUp}
+              custom={1}
+              initial="hidden"
+              animate="show"
+              className="font-serif text-5xl leading-[0.95] tracking-tight text-ink text-balance md:text-6xl lg:text-7xl"
+            >
+              From <span className="italic text-indigo">Pitch</span> to{" "}
+              <span className="relative">
+                <span className="scribble">Published.</span>
+              </span>
+              <br />
+              <span className="gradient-text">10× your media wins</span> in 90 days.
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              initial="hidden"
+              animate="show"
+              className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/75 md:text-lg text-pretty"
+            >
+              The only PR program co-taught by the founder of a <strong className="text-ink">top-50 digital PR agency</strong> and a <strong className="text-ink">tier-one journalist</strong> with bylines in Business Insider, NBC, Investopedia &amp; PayPal.
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp}
+              custom={3}
+              initial="hidden"
+              animate="show"
+              className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            >
+              <a
+                href="#pricing"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-indigo px-7 py-3.5 text-base font-semibold text-canvas shadow-[0_20px_60px_-15px_rgba(55,59,153,0.55)] transition hover:bg-indigo-deep"
+              >
+                <span className="relative z-10">Enroll for $499</span>
+                <span className="relative z-10 rounded-full bg-canvas/15 px-2 py-0.5 text-xs">
+                  Save $500
+                </span>
+                <ArrowRight className="relative z-10 h-4 w-4 transition group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#curriculum"
+                className="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-canvas/60 px-5 py-3.5 text-base text-ink/80 backdrop-blur transition hover:border-ink/40 hover:text-ink"
+              >
+                <PlayCircle className="h-5 w-5" />
+                See curriculum
+              </a>
+            </motion.div>
+
+            <motion.div
+              variants={fadeUp}
+              custom={4}
+              initial="hidden"
+              animate="show"
+              className="mt-5 flex flex-col items-center justify-center gap-2 text-sm text-ink/65 md:flex-row md:gap-5"
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-indigo text-indigo" />
+                  ))}
+                </div>
+                <span><strong className="text-ink">4.9/5</strong> from 312 founders</span>
+              </div>
+              <span className="hidden h-1 w-1 rounded-full bg-ink/30 md:inline-block" />
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-indigo" /> 30-day 10× guarantee
+              </div>
+            </motion.div>
           </div>
-          <span className="hidden h-1 w-1 rounded-full bg-ink/30 md:inline-block" />
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="h-4 w-4 text-indigo" /> Lifetime access
+
+          <div className="hidden md:flex md:justify-end">
+            <PortraitFrame
+              src="/sakshi.jpg"
+              name="Sakshi Udavant"
+              role="Tier-1 Journalist"
+              side="right"
+              delay={0.25}
+            />
           </div>
-        </motion.div>
+        </div>
+
+        {/* Mobile portraits row */}
+        <div className="mt-10 grid grid-cols-2 gap-4 md:hidden">
+          <PortraitFrame src="/chris.jpg" name="Chris Panteli" role="Linkifi" side="left" delay={0.1} />
+          <PortraitFrame src="/sakshi.jpg" name="Sakshi Udavant" side="right" role="Journalist" delay={0.15} />
+        </div>
 
         {/* Proof pills */}
         <motion.div variants={fadeUp} custom={5} initial="hidden" animate="show" className="mt-12 flex flex-wrap items-center justify-center gap-2">
@@ -100,8 +218,7 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Stat strip */}
-        <motion.div variants={fadeUp} custom={6} initial="hidden" animate="show" className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-blush-dark/20 bg-blush-dark/20 md:grid-cols-4">
+        <motion.div variants={fadeUp} custom={6} initial="hidden" animate="show" className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-blush-dark/20 bg-blush-dark/20 md:grid-cols-4">
           {[
             { k: "10×", v: "Avg. pitch reply uplift" },
             { k: "90", v: "Day PR transformation" },

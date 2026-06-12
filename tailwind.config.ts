@@ -1,18 +1,18 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Brand palette
- * - Indigo  #373B99  (primary brand)
- * - Blush   #F0D5EB  (secondary surface)
- * - Sky     #75C4E5  (accent / highlight)
+ * Brand palette — PINK PROMINENT
+ * - Blush   #F0D5EB  (primary surface / dominant accent)
+ * - Indigo  #373B99  (brand anchor, buttons, headings accents)
+ * - Sky     #75C4E5  (highlights, secondary accent)
  * - Black   #000000  (ink / text)
+ * - Cream   #FAF6F2  (lightest canvas)
  */
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Surfaces (light theme)
         ink: {
           50: "#000000",
           100: "#1A1A1A",
@@ -20,13 +20,23 @@ const config: Config = {
           300: "#6B6B6B",
           400: "#9C9C9C",
           500: "#000000",
-          900: "#F0D5EB", // blush surface
-          950: "#FAF6F2", // canvas
+          900: "#F0D5EB",
+          950: "#FFF7FB", // pink-tinted canvas
         },
-        // Foreground / text
         paper: "#000000",
-        canvas: "#FAF6F2",
-        blush: "#F0D5EB",
+        canvas: "#FFF7FB",
+        cream: "#FAF6F2",
+        blush: {
+          DEFAULT: "#F0D5EB",
+          deep: "#E0A8D2",
+          dark: "#B96AA0",
+          50: "#FDF2F9",
+          100: "#FAE3F2",
+          200: "#F0D5EB",
+          300: "#E0A8D2",
+          400: "#CF7AB8",
+          500: "#B96AA0",
+        },
         sky: "#75C4E5",
         indigo: {
           DEFAULT: "#373B99",
@@ -34,7 +44,7 @@ const config: Config = {
           soft: "#5C61C7",
         },
         accent: {
-          DEFAULT: "#373B99",
+          DEFAULT: "#F0D5EB",
           warm: "#75C4E5",
           gold: "#75C4E5",
         },
@@ -46,11 +56,13 @@ const config: Config = {
       },
       animation: {
         marquee: "marquee 40s linear infinite",
+        "marquee-slow": "marquee 60s linear infinite",
         "marquee-reverse": "marquee 40s linear infinite reverse",
         "fade-up": "fade-up 0.8s ease-out forwards",
         shimmer: "shimmer 2.5s linear infinite",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
+        "spin-slow": "spin 18s linear infinite",
       },
       keyframes: {
         marquee: {
@@ -66,8 +78,8 @@ const config: Config = {
           "100%": { backgroundPosition: "200% 0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 30px rgba(55, 59, 153, 0.25)" },
-          "50%": { boxShadow: "0 0 60px rgba(55, 59, 153, 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 30px rgba(240, 213, 235, 0.5)" },
+          "50%": { boxShadow: "0 0 60px rgba(240, 213, 235, 0.9)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0)" },

@@ -7,8 +7,11 @@
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --c-canvas: #FAF6F2;
+  --c-canvas: #FFF7FB;
+  --c-cream: #FAF6F2;
   --c-blush: #F0D5EB;
+  --c-blush-deep: #E0A8D2;
+  --c-blush-dark: #B96AA0;
   --c-indigo: #373B99;
   --c-indigo-deep: #23266B;
   --c-sky: #75C4E5;
@@ -23,11 +26,15 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 0% 0%, rgba(240, 213, 235, 0.7), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 100% 10%, rgba(117, 196, 229, 0.25), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(240, 213, 235, 0.55), transparent 60%);
+  background-attachment: fixed;
 }
 
-::selection { background: var(--c-indigo); color: var(--c-canvas); }
+::selection { background: var(--c-blush-dark); color: var(--c-canvas); }
 
-/* Newsprint texture overlay */
 .noise-bg { position: relative; }
 .noise-bg::before {
   content: "";
@@ -44,14 +51,21 @@ body {
 .text-pretty { text-wrap: pretty; }
 
 .gradient-text {
-  background: linear-gradient(110deg, #000 0%, #373B99 50%, #75C4E5 100%);
+  background: linear-gradient(110deg, #B96AA0 0%, #373B99 50%, #75C4E5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-blush-gradient {
+  background: linear-gradient(120deg, #B96AA0 0%, #E0A8D2 50%, #F0D5EB 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .shimmer {
-  background: linear-gradient(110deg, transparent 30%, rgba(55, 59, 153, 0.15) 50%, transparent 70%);
+  background: linear-gradient(110deg, transparent 30%, rgba(240, 213, 235, 0.4) 50%, transparent 70%);
   background-size: 200% 100%;
   animation: shimmer 2.5s linear infinite;
 }
@@ -61,26 +75,41 @@ body {
   height: 1px;
 }
 
-/* Glassy paper card */
+/* Cards — pink-tinted glass paper */
 .grain-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(240, 213, 235, 0.35) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 213, 235, 0.45) 100%);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 12px 40px -20px rgba(55, 59, 153, 0.18);
+  border: 1px solid rgba(185, 106, 160, 0.18);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 18px 50px -22px rgba(185, 106, 160, 0.4);
+}
+
+.blush-card {
+  background: linear-gradient(180deg, #FAE3F2 0%, #F0D5EB 100%);
+  border: 1px solid rgba(185, 106, 160, 0.25);
+  box-shadow: 0 24px 60px -22px rgba(185, 106, 160, 0.4);
 }
 
 .glow-border {
   position: relative;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F7EEF6 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAE3F2 100%);
   border: 1px solid rgba(55, 59, 153, 0.35);
-  box-shadow: 0 0 0 1px rgba(55, 59, 153, 0.08), 0 24px 60px -22px rgba(55, 59, 153, 0.45);
+  box-shadow: 0 0 0 1px rgba(55, 59, 153, 0.08), 0 28px 60px -22px rgba(55, 59, 153, 0.45);
 }
 
-/* Indigo-ink hero card (inverted) */
 .ink-card {
   background: linear-gradient(180deg, #23266B 0%, #000000 100%);
   color: var(--c-canvas);
-  border: 1px solid rgba(117, 196, 229, 0.25);
+  border: 1px solid rgba(240, 213, 235, 0.3);
+}
+
+/* Sticky urgency bar */
+.urgency-bar {
+  background: linear-gradient(90deg, #B96AA0 0%, #373B99 50%, #B96AA0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 8s linear infinite;
+  color: #FFF7FB;
 }
 
 @keyframes ticker-blink {
@@ -90,11 +119,10 @@ body {
 .live-dot { animation: ticker-blink 1.5s ease-in-out infinite; }
 
 .marquee-mask {
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* Underline flourish for editorial accents */
 .editorial-underline {
   position: relative;
   display: inline-block;
@@ -105,8 +133,30 @@ body {
   left: 0;
   right: 0;
   bottom: -0.08em;
-  height: 0.18em;
-  background: var(--c-sky);
+  height: 0.22em;
+  background: var(--c-blush);
   z-index: -1;
   border-radius: 2px;
+}
+
+.tag-pill {
+  background: rgba(240, 213, 235, 0.7);
+  border: 1px solid rgba(185, 106, 160, 0.3);
+  color: #4a1d3d;
+}
+
+/* Highlight scribble underline (pink hand-drawn feel) */
+.scribble {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'><path d='M2 7 Q 50 1, 100 6 T 200 5 T 298 7' stroke='%23E0A8D2' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% 0.4em;
+  padding-bottom: 0.2em;
+}
+
+.hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
 }

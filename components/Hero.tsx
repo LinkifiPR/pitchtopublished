@@ -113,13 +113,13 @@ export default function Hero() {
         <div className="grid items-center gap-6 md:grid-cols-[auto_1fr_auto] md:gap-10">
           <div className="hidden md:flex md:justify-start">
             <PortraitFrame
-              src="/chris.png"
+              src="/chris.jpg"
               name="Chris Panteli"
               role="Co-founder · Linkifi"
               side="left"
               delay={0.15}
               bgGradient="linear-gradient(160deg, #F0D5EB 0%, #E91E80 100%)"
-              fit="contain"
+              fit="cover"
             />
           </div>
 
@@ -212,7 +212,7 @@ export default function Hero() {
 
         {/* Mobile portraits row */}
         <div className="mt-10 grid grid-cols-2 gap-4 md:hidden">
-          <PortraitFrame src="/chris.png" name="Chris Panteli" role="Linkifi" side="left" delay={0.1} bgGradient="linear-gradient(160deg, #F0D5EB 0%, #E91E80 100%)" fit="contain" />
+          <PortraitFrame src="/chris.jpg" name="Chris Panteli" role="Linkifi" side="left" delay={0.1} bgGradient="linear-gradient(160deg, #F0D5EB 0%, #E91E80 100%)" fit="cover" />
           <PortraitFrame src="/sakshi.jpg" name="Sakshi Udavant" role="Journalist" side="right" delay={0.15} bgGradient="linear-gradient(160deg, #75C4E5 0%, #373B99 100%)" fit="cover" />
         </div>
 

@@ -27,7 +27,7 @@ export default function Problem() {
           eyebrow="The truth about PR"
           title={
             <>
-              Why <span className="italic text-accent">99% of pitches</span>
+              Why <span className="italic text-indigo">99% of pitches</span>
               <br /> get ignored.
             </>
           }
@@ -66,7 +66,7 @@ export default function Problem() {
             <div className="glow-border relative h-full overflow-hidden rounded-2xl p-8 md:p-10">
               <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
               <div className="mb-8 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-accent">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/20 text-indigo">
                   <Check className="h-5 w-5" />
                 </div>
                 <h3 className="font-serif text-2xl">The Pitch to Published way</h3>
@@ -81,7 +81,7 @@ export default function Problem() {
                     transition={{ delay: i * 0.06 }}
                     className="flex gap-3 text-paper"
                   >
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                    <Check className="mt-1 h-4 w-4 shrink-0 text-indigo" />
                     <span className="text-pretty">{g}</span>
                   </motion.li>
                 ))}

@@ -27,7 +27,7 @@ export default function ForWho() {
           eyebrow="Is this for you?"
           title={
             <>
-              We are <span className="italic text-blush-dark">unapologetically picky</span> about who this is for.
+              We are <span className="italic text-indigo">unapologetically picky</span> about who this is for.
             </>
           }
         />
@@ -54,7 +54,7 @@ export default function ForWho() {
           <Reveal delay={0.1}>
             <div className="grain-card h-full rounded-2xl p-8">
               <div className="flex items-center gap-3 border-b border-blush-dark/15 pb-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blush-dark text-canvas">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blush-pop text-canvas">
                   <X className="h-5 w-5" />
                 </div>
                 <h3 className="font-serif text-2xl text-ink">Not for</h3>
@@ -62,7 +62,7 @@ export default function ForWho() {
               <ul className="mt-5 space-y-3">
                 {NOT_FOR.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-ink/65">
-                    <X className="mt-1 h-4 w-4 shrink-0 text-blush-dark" />
+                    <X className="mt-1 h-4 w-4 shrink-0 text-blush-pop" />
                     <span className="text-pretty">{f}</span>
                   </li>
                 ))}

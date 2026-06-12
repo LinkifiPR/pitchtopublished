@@ -24,7 +24,7 @@ export default function ValueStack() {
           eyebrow="The full stack"
           title={
             <>
-              What you actually get, <span className="italic text-blush-dark">line by line</span>.
+              What you actually get, <span className="italic text-indigo">line by line</span>.
             </>
           }
           intro="Most courses hand you 4 hours of videos and call it done. This is the full operating system Linkifi uses on $10k/mo client work."
@@ -35,14 +35,14 @@ export default function ValueStack() {
             <ul className="divide-y divide-blush-dark/15">
               {STACK.map((row, i) => (
                 <li key={row.label} className="flex items-center gap-4 px-6 py-5 md:px-8">
-                  <span className="font-mono text-xs text-blush-dark">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-mono text-xs text-indigo">{String(i + 1).padStart(2, "0")}</span>
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-indigo" />
                   <span className="flex-1 text-pretty text-ink/90">{row.label}</span>
                   <span className="font-serif text-xl text-ink">${row.value}</span>
                 </li>
               ))}
               <li className="flex items-center justify-between bg-blush/60 px-6 py-5 md:px-8">
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-blush-dark">Total stack value</span>
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-indigo">Total stack value</span>
                 <span className="font-serif text-3xl text-indigo">${TOTAL.toLocaleString()}</span>
               </li>
               <li className="flex items-center justify-between bg-indigo px-6 py-6 text-canvas md:px-8">

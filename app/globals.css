@@ -51,14 +51,14 @@ body {
 .text-pretty { text-wrap: pretty; }
 
 .gradient-text {
-  background: linear-gradient(110deg, #B96AA0 0%, #373B99 50%, #75C4E5 100%);
+  background: linear-gradient(110deg, #373B99 0%, #E91E80 55%, #C73A91 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-blush-gradient {
-  background: linear-gradient(120deg, #B96AA0 0%, #E0A8D2 50%, #F0D5EB 100%);
+  background: linear-gradient(110deg, #373B99 0%, #E91E80 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -134,20 +134,29 @@ body {
   right: 0;
   bottom: -0.08em;
   height: 0.22em;
-  background: var(--c-blush);
+  background: #E91E80;
   z-index: -1;
   border-radius: 2px;
 }
 
 .tag-pill {
   background: rgba(240, 213, 235, 0.7);
-  border: 1px solid rgba(185, 106, 160, 0.3);
+  border: 1px solid rgba(199, 58, 145, 0.35);
   color: #4a1d3d;
 }
 
+.bright-pill {
+  background: #E91E80;
+  color: #FFF7FB;
+}
+
+/* Pop accent — bright hot-pink for callouts, dots, mini-badges */
+.text-pop { color: #E91E80; }
+.bg-pop { background-color: #E91E80; }
+
 /* Highlight scribble underline (pink hand-drawn feel) */
 .scribble {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'><path d='M2 7 Q 50 1, 100 6 T 200 5 T 298 7' stroke='%23E0A8D2' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'><path d='M2 7 Q 50 1, 100 6 T 200 5 T 298 7' stroke='%23E91E80' stroke-width='5' fill='none' stroke-linecap='round'/></svg>");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 100% 0.4em;

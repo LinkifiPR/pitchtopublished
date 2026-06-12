@@ -19,16 +19,16 @@ const PROOF_PILLS = [
 
 export default function Hero() {
   return (
-    <section id="top" className="noise-bg relative isolate overflow-hidden pb-20 pt-28 md:pt-32">
+    <section id="top" className="noise-bg relative isolate overflow-hidden pb-16 pt-10 md:pb-20 md:pt-14">
       <div aria-hidden className="hero-grid-bg absolute inset-0 -z-10 opacity-40" style={{ maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)" }} />
       <div aria-hidden className="absolute left-1/2 top-1/3 -z-10 h-[640px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[120px]" style={{ background: "radial-gradient(ellipse, #F0D5EB 0%, transparent 70%)" }} />
       <div aria-hidden className="absolute right-0 top-1/4 -z-10 h-[420px] w-[420px] rounded-full opacity-50 blur-[100px]" style={{ background: "radial-gradient(ellipse, #75C4E5 0%, transparent 70%)" }} />
 
       <div className="mx-auto max-w-6xl px-6">
         {/* Top eyebrow */}
-        <motion.div variants={fadeUp} custom={0} initial="hidden" animate="show" className="mb-7 flex flex-wrap items-center justify-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-blush-dark/30 bg-blush/60 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-blush-dark">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-blush-dark live-dot" />
+        <motion.div variants={fadeUp} custom={0} initial="hidden" animate="show" className="mb-5 flex flex-wrap items-center justify-center gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-blush-dark/40 bg-blush/70 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-indigo">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-blush-pop live-dot" />
             Cohort 01 open · 47 of 100 seats taken
           </span>
         </motion.div>
@@ -45,7 +45,7 @@ export default function Hero() {
             <span className="scribble">Published.</span>
           </span>
           <br />
-          <span className="text-blush-gradient">10× your media wins</span> in 90 days.
+          <span className="gradient-text">10× your media wins</span> in 90 days.
         </motion.h1>
 
         <motion.p

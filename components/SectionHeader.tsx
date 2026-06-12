@@ -16,9 +16,9 @@ export default function SectionHeader({
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       <Reveal>
         <div className={`inline-flex items-center gap-3 ${align === "center" ? "justify-center" : ""}`}>
-          <span className="h-px w-8 bg-accent" />
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">{eyebrow}</span>
-          <span className="h-px w-8 bg-accent" />
+          <span className="h-px w-8 bg-blush-pop" />
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-blush-pop">{eyebrow}</span>
+          <span className="h-px w-8 bg-blush-pop" />
         </div>
       </Reveal>
       <Reveal delay={0.1}>

@@ -22,7 +22,7 @@ export default function Outcomes() {
           eyebrow="By the end of 90 days"
           title={
             <>
-              You will be able to <span className="italic text-blush-dark">do all of this</span>.
+              You will be able to <span className="italic text-indigo">do all of this</span>.
             </>
           }
           intro="Not theory. Not generalizations. Concrete, measurable capabilities you'll walk away with."

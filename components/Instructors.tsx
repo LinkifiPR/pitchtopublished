@@ -34,7 +34,7 @@ export default function Instructors() {
           eyebrow="Your instructors"
           title={
             <>
-              Both sides of the <span className="italic text-accent">inbox</span>.
+              Both sides of the <span className="italic text-indigo">inbox</span>.
             </>
           }
           intro="For the first time, the agency operator who books the placements and the journalist who decides what runs are teaching the playbook together."
@@ -67,7 +67,7 @@ export default function Instructors() {
                 <p className="mt-6 text-paper/75 text-pretty">{p.bio}</p>
 
                 <div className="mt-8 rounded-2xl border-l-2 border-accent bg-paper/[0.03] p-5">
-                  <Quote className="mb-2 h-4 w-4 text-accent/70" />
+                  <Quote className="mb-2 h-4 w-4 text-indigo/70" />
                   <p className="font-serif text-lg italic leading-snug text-paper/90 text-pretty">
                     {p.quote}
                   </p>

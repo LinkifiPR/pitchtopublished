@@ -28,7 +28,7 @@ export default function Nav() {
             P
           </div>
           <span className="font-serif text-lg tracking-tight text-ink">
-            Pitch <span className="text-blush-dark">to</span> Published
+            Pitch <span className="text-blush-pop">to</span> Published
           </span>
         </a>
         <div className="hidden items-center gap-8 text-sm text-ink/70 md:flex">

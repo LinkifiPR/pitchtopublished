@@ -120,7 +120,7 @@ export default function Bonuses() {
                     </div>
                   </div>
 
-                  <div className={`font-mono text-[10px] uppercase tracking-[0.25em] ${isFeatured ? "text-sky" : "text-blush-dark"}`}>
+                  <div className={`font-mono text-[10px] uppercase tracking-[0.25em] ${isFeatured ? "text-sky" : "text-indigo"}`}>
                     {b.tag}
                   </div>
                   <h3 className={`mt-2 font-serif text-2xl leading-tight md:text-3xl ${isFeatured ? "text-canvas" : "text-ink"}`}>
@@ -154,7 +154,7 @@ export default function Bonuses() {
 
         <Reveal delay={0.2}>
           <div className="mt-14 flex flex-col items-center gap-2 text-center">
-            <div className="font-mono text-xs uppercase tracking-[0.25em] text-blush-dark">Total bonus stack</div>
+            <div className="font-mono text-xs uppercase tracking-[0.25em] text-indigo">Total bonus stack</div>
             <div className="font-serif text-5xl text-indigo md:text-6xl">${TOTAL} <span className="text-ink/40 line-through text-2xl align-middle">retail</span></div>
             <div className="mt-1 max-w-md text-pretty text-ink/65">
               Yours when you enroll during Cohort 01 — never bundled together again at this price.

@@ -29,13 +29,14 @@ const config: Config = {
         blush: {
           DEFAULT: "#F0D5EB",
           deep: "#E0A8D2",
-          dark: "#B96AA0",
+          dark: "#C73A91",
+          pop: "#E91E80",
           50: "#FDF2F9",
           100: "#FAE3F2",
           200: "#F0D5EB",
           300: "#E0A8D2",
           400: "#CF7AB8",
-          500: "#B96AA0",
+          500: "#C73A91",
         },
         sky: "#75C4E5",
         indigo: {
@@ -44,8 +45,8 @@ const config: Config = {
           soft: "#5C61C7",
         },
         accent: {
-          DEFAULT: "#F0D5EB",
-          warm: "#75C4E5",
+          DEFAULT: "#373B99",
+          warm: "#E91E80",
           gold: "#75C4E5",
         },
       },

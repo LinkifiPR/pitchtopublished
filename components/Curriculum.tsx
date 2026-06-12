@@ -98,7 +98,7 @@ export default function Curriculum() {
           eyebrow="The curriculum"
           title={
             <>
-              8 modules. <span className="italic text-accent">12+ hours</span>.<br /> One repeatable system.
+              8 modules. <span className="italic text-indigo">12+ hours</span>.<br /> One repeatable system.
             </>
           }
           intro="Every lesson is paired with a swipe file, template, or worksheet. No fluff, no theory — only what we use on real client engagements."
@@ -118,7 +118,7 @@ export default function Curriculum() {
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="flex w-full items-center gap-6 p-6 text-left md:p-8"
                   >
-                    <span className="font-mono text-sm text-accent md:text-base">{m.n}</span>
+                    <span className="font-mono text-sm text-indigo md:text-base">{m.n}</span>
                     <div className="flex-1">
                       <h3 className="font-serif text-xl text-paper md:text-2xl">{m.title}</h3>
                     </div>

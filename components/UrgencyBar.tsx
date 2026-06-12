@@ -31,18 +31,18 @@ export default function UrgencyBar() {
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <div className="urgency-bar sticky top-0 z-[60] flex w-full items-center justify-center gap-3 px-4 py-2 text-center font-mono text-[11px] uppercase tracking-[0.18em] md:text-xs">
-      <Flame className="h-3.5 w-3.5" />
+    <div className="urgency-bar sticky top-0 z-[60] flex w-full flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-3 text-center font-mono text-sm uppercase tracking-[0.18em] md:py-3.5 md:text-base">
+      <Flame className="h-4 w-4 md:h-5 md:w-5" />
       <span className="hidden sm:inline">Launch pricing ends in</span>
       <span className="inline sm:hidden">Ends in</span>
       <span className="flex items-center gap-1.5 font-bold">
-        <span className="rounded bg-black/30 px-1.5 py-0.5">{pad(time.d)}d</span>
+        <span className="rounded bg-black/30 px-2 py-1 text-base md:text-lg">{pad(time.d)}d</span>
         <span>:</span>
-        <span className="rounded bg-black/30 px-1.5 py-0.5">{pad(time.h)}h</span>
+        <span className="rounded bg-black/30 px-2 py-1 text-base md:text-lg">{pad(time.h)}h</span>
         <span>:</span>
-        <span className="rounded bg-black/30 px-1.5 py-0.5">{pad(time.m)}m</span>
+        <span className="rounded bg-black/30 px-2 py-1 text-base md:text-lg">{pad(time.m)}m</span>
         <span>:</span>
-        <span className="rounded bg-black/30 px-1.5 py-0.5">{pad(time.s)}s</span>
+        <span className="rounded bg-black/30 px-2 py-1 text-base md:text-lg">{pad(time.s)}s</span>
       </span>
       <span className="hidden md:inline">· save $500 + 3 free bonuses</span>
     </div>

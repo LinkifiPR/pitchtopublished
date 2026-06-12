@@ -24,12 +24,16 @@ function PortraitFrame({
   role,
   side,
   delay = 0,
+  bgGradient,
+  fit = "cover",
 }: {
   src: string;
   name: string;
   role: string;
   side: "left" | "right";
   delay?: number;
+  bgGradient: string;
+  fit?: "cover" | "contain";
 }) {
   const tilt = side === "left" ? "-rotate-3" : "rotate-3";
   const align = side === "left" ? "items-start text-left" : "items-end text-right";
@@ -41,7 +45,6 @@ function PortraitFrame({
       className={`relative flex flex-col gap-3 ${align}`}
     >
       <div className={`group relative ${tilt} transition-transform duration-500 hover:rotate-0`}>
-        {/* glow halo */}
         <div
           aria-hidden
           className="absolute -inset-6 -z-10 rounded-[2rem] opacity-70 blur-2xl"
@@ -52,16 +55,18 @@ function PortraitFrame({
                 : "radial-gradient(ellipse, #75C4E5 0%, transparent 70%)",
           }}
         />
-        <div className="relative h-72 w-56 overflow-hidden rounded-[1.75rem] border-[3px] border-canvas shadow-[0_30px_60px_-15px_rgba(0,0,0,0.35)] md:h-96 md:w-72">
+        <div
+          className="relative h-72 w-56 overflow-hidden rounded-[1.75rem] border-[3px] border-canvas shadow-[0_30px_60px_-15px_rgba(0,0,0,0.35)] md:h-96 md:w-72"
+          style={{ background: bgGradient }}
+        >
           <Image
             src={src}
             alt={name}
             fill
             sizes="(min-width: 768px) 18rem, 14rem"
-            className="object-cover"
+            className={fit === "contain" ? "object-contain object-bottom" : "object-cover object-top"}
             priority
           />
-          {/* subtle gradient overlay for legibility */}
           <div
             aria-hidden
             className="absolute inset-x-0 bottom-0 h-1/2"
@@ -70,7 +75,6 @@ function PortraitFrame({
                 "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%)",
             }}
           />
-          {/* nameplate */}
           <div className="absolute inset-x-0 bottom-0 p-4 text-canvas">
             <div className="font-serif text-xl leading-tight md:text-2xl">{name}</div>
             <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-canvas/85">
@@ -78,7 +82,6 @@ function PortraitFrame({
             </div>
           </div>
         </div>
-        {/* corner sticker badge */}
         <div
           className={`absolute -top-3 ${
             side === "left" ? "-right-3 rotate-6" : "-left-3 -rotate-6"
@@ -110,11 +113,13 @@ export default function Hero() {
         <div className="grid items-center gap-6 md:grid-cols-[auto_1fr_auto] md:gap-10">
           <div className="hidden md:flex md:justify-start">
             <PortraitFrame
-              src="/chris.jpg"
+              src="/chris.png"
               name="Chris Panteli"
               role="Co-founder · Linkifi"
               side="left"
               delay={0.15}
+              bgGradient="linear-gradient(160deg, #F0D5EB 0%, #E91E80 100%)"
+              fit="contain"
             />
           </div>
 
@@ -199,14 +204,16 @@ export default function Hero() {
               role="Tier-1 Journalist"
               side="right"
               delay={0.25}
+              bgGradient="linear-gradient(160deg, #75C4E5 0%, #373B99 100%)"
+              fit="cover"
             />
           </div>
         </div>
 
         {/* Mobile portraits row */}
         <div className="mt-10 grid grid-cols-2 gap-4 md:hidden">
-          <PortraitFrame src="/chris.jpg" name="Chris Panteli" role="Linkifi" side="left" delay={0.1} />
-          <PortraitFrame src="/sakshi.jpg" name="Sakshi Udavant" side="right" role="Journalist" delay={0.15} />
+          <PortraitFrame src="/chris.png" name="Chris Panteli" role="Linkifi" side="left" delay={0.1} bgGradient="linear-gradient(160deg, #F0D5EB 0%, #E91E80 100%)" fit="contain" />
+          <PortraitFrame src="/sakshi.jpg" name="Sakshi Udavant" role="Journalist" side="right" delay={0.15} bgGradient="linear-gradient(160deg, #75C4E5 0%, #373B99 100%)" fit="cover" />
         </div>
 
         {/* Proof pills */}

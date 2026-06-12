@@ -9,7 +9,7 @@ const INSTRUCTORS = [
     name: "Chris Panteli",
     role: "Co-founder, Linkifi",
     badge: "The Agency Operator",
-    photo: "/chris.jpg",
+    photo: "/chris.png",
     bio: "Chris has built Linkifi into one of the world's leading digital PR agencies, securing thousands of placements across tier-one media for funded startups, public companies, and category-defining brands.",
     quote:
       "Most founders think PR is a black box. It's not — it's a system. I'll show you the exact one that gets our clients into Forbes every week.",

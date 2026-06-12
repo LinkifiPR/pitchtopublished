@@ -44,7 +44,7 @@ function PortraitFrame({
       transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
       className={`relative flex flex-col gap-3 ${align}`}
     >
-      <div className={`group relative ${tilt} w-full max-w-[18rem] transition-transform duration-500 hover:rotate-0`}>
+      <div className={`group relative ${tilt} w-full max-w-[18rem] md:w-72 md:max-w-none transition-transform duration-500 hover:rotate-0`}>
         <div
           aria-hidden
           className="absolute -inset-6 -z-10 rounded-[2rem] opacity-70 blur-2xl"

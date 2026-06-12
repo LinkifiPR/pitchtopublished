@@ -44,7 +44,7 @@ function PortraitFrame({
       transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
       className={`relative flex flex-col gap-3 ${align}`}
     >
-      <div className={`group relative ${tilt} transition-transform duration-500 hover:rotate-0`}>
+      <div className={`group relative ${tilt} w-full max-w-[18rem] transition-transform duration-500 hover:rotate-0`}>
         <div
           aria-hidden
           className="absolute -inset-6 -z-10 rounded-[2rem] opacity-70 blur-2xl"
@@ -56,14 +56,14 @@ function PortraitFrame({
           }}
         />
         <div
-          className="relative h-72 w-56 overflow-hidden rounded-[1.75rem] border-[3px] border-canvas shadow-[0_30px_60px_-15px_rgba(0,0,0,0.35)] md:h-96 md:w-72"
+          className="relative aspect-[3/4] w-full overflow-hidden rounded-[1.5rem] border-[3px] border-canvas shadow-[0_30px_60px_-15px_rgba(0,0,0,0.35)] md:rounded-[1.75rem]"
           style={{ background: bgGradient }}
         >
           <Image
             src={src}
             alt={name}
             fill
-            sizes="(min-width: 768px) 18rem, 14rem"
+            sizes="(min-width: 768px) 18rem, 50vw"
             className={fit === "contain" ? "object-contain object-bottom" : "object-cover object-top"}
             priority
           />
@@ -75,17 +75,17 @@ function PortraitFrame({
                 "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%)",
             }}
           />
-          <div className="absolute inset-x-0 bottom-0 p-4 text-canvas">
-            <div className="font-serif text-xl leading-tight md:text-2xl">{name}</div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-canvas/85">
+          <div className="absolute inset-x-0 bottom-0 p-3 text-canvas md:p-4">
+            <div className="font-serif text-base leading-tight md:text-2xl">{name}</div>
+            <div className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-canvas/85">
               {role}
             </div>
           </div>
         </div>
         <div
-          className={`absolute -top-3 ${
-            side === "left" ? "-right-3 rotate-6" : "-left-3 -rotate-6"
-          } rounded-full ${side === "left" ? "bg-blush-pop" : "bg-sky"} px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-canvas shadow-lg`}
+          className={`absolute -top-2 ${
+            side === "left" ? "-right-2 rotate-6 md:-right-3" : "-left-2 -rotate-6 md:-left-3"
+          } whitespace-nowrap rounded-full ${side === "left" ? "bg-blush-pop" : "bg-sky"} px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-canvas shadow-xl md:-top-3 md:px-4 md:py-2 md:text-xs`}
         >
           {side === "left" ? "The Operator" : "The Insider"}
         </div>
@@ -96,16 +96,16 @@ function PortraitFrame({
 
 export default function Hero() {
   return (
-    <section id="top" className="noise-bg relative isolate overflow-hidden pb-16 pt-10 md:pb-20 md:pt-14">
+    <section className="noise-bg relative isolate overflow-hidden pb-16 pt-10 md:pb-20 md:pt-14">
       <div aria-hidden className="hero-grid-bg absolute inset-0 -z-10 opacity-40" style={{ maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)" }} />
       <div aria-hidden className="absolute left-1/2 top-1/3 -z-10 h-[640px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[120px]" style={{ background: "radial-gradient(ellipse, #F0D5EB 0%, transparent 70%)" }} />
       <div aria-hidden className="absolute right-0 top-1/4 -z-10 h-[420px] w-[420px] rounded-full opacity-50 blur-[100px]" style={{ background: "radial-gradient(ellipse, #75C4E5 0%, transparent 70%)" }} />
 
       <div className="mx-auto max-w-7xl px-6">
-        <motion.div variants={fadeUp} custom={0} initial="hidden" animate="show" className="mb-5 flex flex-wrap items-center justify-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-blush-dark/40 bg-blush/70 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-indigo">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-blush-pop live-dot" />
-            Cohort 01 open · 47 of 100 seats taken
+        <motion.div variants={fadeUp} custom={0} initial="hidden" animate="show" className="mb-6 flex flex-wrap items-center justify-center gap-3">
+          <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-blush-dark/40 bg-blush/70 px-4 py-2 text-center font-mono text-xs font-semibold uppercase tracking-[0.18em] text-indigo md:text-[13px]">
+            <span className="flex h-2 w-2 shrink-0 rounded-full bg-blush-pop live-dot" />
+            <span>Cohort 01 open · 47 of 100 seats taken</span>
           </span>
         </motion.div>
 

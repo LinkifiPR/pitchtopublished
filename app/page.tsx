@@ -1,4 +1,5 @@
 import UrgencyBar from "@/components/UrgencyBar";
+import ScrollToTop from "@/components/ScrollToTop";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import LogosMarquee from "@/components/LogosMarquee";
@@ -22,6 +23,7 @@ import Footer from "@/components/Footer";
 export default function Page() {
   return (
     <main className="relative overflow-hidden text-ink">
+      <ScrollToTop />
       <UrgencyBar />
       <Nav />
       <Hero />

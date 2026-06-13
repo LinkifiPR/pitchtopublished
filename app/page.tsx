@@ -11,6 +11,7 @@ import MidCTA from "@/components/MidCTA";
 import Instructors from "@/components/Instructors";
 import FounderLetter from "@/components/FounderLetter";
 import Curriculum from "@/components/Curriculum";
+import CoursePreview from "@/components/CoursePreview";
 import Journey from "@/components/Journey";
 import Bonuses from "@/components/Bonuses";
 import CaseStudies from "@/components/CaseStudies";
@@ -47,6 +48,7 @@ export default function Page() {
       <Instructors />
       <FounderLetter />
       <Curriculum />
+      <CoursePreview />
       <Journey />
       <Bonuses />
       <CaseStudies />
